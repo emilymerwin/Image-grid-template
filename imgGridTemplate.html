@@ -20,6 +20,9 @@
 		.bigImg {
 			 width: 260px;
 			 height: 260px;
+			 -moz-box-shadow: 0 0 5px #888;
+			 -webkit-box-shadow: 0 0 5px#888;
+			 box-shadow: 0 0 5px #888;
 		}
 		.lilImg {
 			width: 120px;
@@ -81,11 +84,6 @@
 			height: 300px;
 			width: 200px;
 			padding-top: 10px;
-		}
-		.bigImg {
-			-moz-box-shadow: 0 0 5px #888;
-			-webkit-box-shadow: 0 0 5px#888;
-			box-shadow: 0 0 5px #888;
 		}
 		#leftHov, #rightHov {
 			position: absolute;
@@ -158,8 +156,8 @@
 			imgSrc = gdata.imageurl;
 			lilImg = '<a href="#"><img class="lilImg" src="' + imgSrc + '"/></a>';
 			bigImg = '<img class="bigImg" src="' + imgSrc + '"/>';
-			var myTD = "<td><div id='img"+i+"'>"+lilImg+"</div></td>";
-			var spot = i*cardWidth;
+			var myTD = "<td><div id='img"+i+"'>"+lilImg+"</div></td>",
+			spot = i*cardWidth;
 			if(i%5 === 0) { //split grid into rows of 5
 				myTable.append('<tr id="tr'+myTR+'"></tr>');
 				activeTR = $("#tr"+myTR);

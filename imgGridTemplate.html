@@ -7,135 +7,126 @@
 	<link rel="stylesheet" href="http://host.coxmediagroup.com/ajc/digitalprojects/global/css/iFrame_Medley.css" type="text/css" />
 	<style type="text/css">
 		td {
-			width:120px;
-			height:120px;
-			padding:0;
-			margin:0;
+			width: 120px;
+			height: 120px;
+			padding: 0;
+			margin: 0;
 		}
 		tr {
-			margin-top:0;
-			margin-bottom:0;
-			padding:0;
+			margin-top: 0;
+			margin-bottom: 0;
+			padding: 0;
 		}
 		.bigImg {
-			 width:260px;
-			 height:260px;
+			 width: 260px;
+			 height: 260px;
 		}
 		.lilImg {
-			width:120px; 
-			height:120px;
+			width: 120px;
+			height: 120px;
 		}
 		img {
-			border:none;
-			padding:0;
-			margin:0;
-			vertical-align:middle;
+			border: none;
+			padding: 0;
+			margin: 0;
+			vertical-align: middle;
 		}
-		/*delete*/
-		a img {
-			border:none;
-			padding:0;
-			margin:0;
+		a strong {
+			color: #000098;
 		}
-		a:hover {
-			text-decoration:none;
+		.dates {
+			margin-left: 5px;
 		}
-		a strong{
-			color: #000098;	
-		}
-		.dates{
-			margin-left:5px;
-		}
-		#boxContainer{
+		#boxContainer {
 			-moz-box-shadow: 0 0 5px #888;
 			-webkit-box-shadow: 0 0 5px#888;
 			box-shadow: 0 0 5px #888;
-			border: 2px solid #ccc; 
-			-moz-border-radius: 5px; 
+			border: 2px solid #ccc;
+			-moz-border-radius: 5px;
 			border-radius: 5px;
-			z-index:100;
-			display:none;
-			width:500px; 
-			height:350px; 
-			background-color:#fff;
-			overflow:hidden;
-			position:absolute; 
-			top:10px; 
-			left:50px;
-			padding-top:20px;
+			z-index: 100;
+			display: none;
+			width: 500px;
+			height: 350px;
+			background-color: #fff;
+			overflow: hidden;
+			position: absolute;
+			top: 10px;
+			left: 50px;
+			padding-top: 20px;
 		}
 		.slideDiv {
-			width:550px;
-			height:420px;
-			display:inline;
-			border:none;
-			position:absolute;
-			list-style-type:none;
-			padding:0;
-			margin:0;
+			width: 550px;
+			height: 420px;
+			display: inline;
+			border: none;
+			position: absolute;
+			padding: 0;
+			margin: 0;
 		}
 		.names {
-			font-size:24px;
-			padding-left:30px;
-			margin-top:15px;
+			font-size: 24px;
+			padding-left: 30px;
+			margin-top: 15px;
 		}
 		.images {
-			float:left;
-			display:inline;
-			padding:5px;
-			padding-left:30px;
+			float: left;
+			display: inline;
+			padding: 5px;
+			padding-left: 30px;
 		}
 		.information {
-			float:left;
-			display:inline;
-			height:300px;
-			width:200px;
-			padding-top:10px;
+			float: left;
+			display: inline;
+			height: 300px;
+			width: 200px;
+			padding-top: 10px;
 		}
-		.bigImg{
+		.bigImg {
 			-moz-box-shadow: 0 0 5px #888;
 			-webkit-box-shadow: 0 0 5px#888;
 			box-shadow: 0 0 5px #888;
 		}
-		#leftHov, #rightHov{
-			position:absolute;
-			top:0px;
-			z-index:100;display:none;
+		#leftHov, #rightHov {
+			position: absolute;
+			top: 0px;
+			z-index: 100;
+			display: none;
 		}
-		#leftHov{
-			left:0px;
+		#leftHov {
+			left: 0px;
 		}
-		#rightHov{
-			right:0px;
+		#rightHov {
+			right: 0px;
 		}
-		#hiddenLayer{
-			z-index:1;
-			position:absolute;
-			top:0px;
-			left:0px;
-			width:100%;
-			height:100%;
-			display:none;
+		#hiddenLayer {
+			z-index: 1;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			display: none;
 		}
-		#portraitList{
-			height:350px;
-			position:absolute;
-			top:0;
-			left:0;
-			margin:0;
-			padding:0;
+		#portraitList {
+			height: 350px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: 0;
+			padding: 0;
 		}
 		#closeBtn {
-			z-index:500;
-			position:absolute;
-			right:0px;
-			top:320px;
-			width:30px;
-			height:40px;
+			z-index: 500;
+			position: absolute;
+			right: 0px;
+			top: 320px;
+			width: 30px;
+			height: 40px;
 		}
 		#closeBtn a {
-			text-decoration:none;
-			color:#000;
+			text-decoration: none;
+			color: #000;
 			font-family:'Arial',sanserif;
 		}
 	</style>
@@ -149,7 +140,7 @@
 	};
 
 	function init() {
-	    Tabletop.init({key: public_spreadsheet_url, callback: parsePeeps, simpleSheet: true });
+	    Tabletop.init({key: public_spreadsheet_url, callback: parsePeeps, simpleSheet: true});
 	}
 
 	function parsePeeps(gdata) {
@@ -169,7 +160,7 @@
 			bigImg = '<img class="bigImg" src="' + imgSrc + '"/>';
 			var myTD = "<td><div id='img"+i+"'>"+lilImg+"</div></td>";
 			var spot = i*cardWidth;
-			if(i%5 === 0){ //split grid into rows of 5
+			if(i%5 === 0) { //split grid into rows of 5
 				myTable.append('<tr id="tr'+myTR+'"></tr>');
 				activeTR = $("#tr"+myTR);
 				myTR++;
@@ -177,11 +168,11 @@
 			activeTR.append(myTD);
 
 			//make image grid click to open lightbox
-			$('#'+gridID).click(function(event){
+			$('#'+gridID).click(function(event) {
 				$('#boxContainer').show();
-				if(i >= 30){
+				if(i >= 30) {
 					$('#boxContainer').css({'top': '600px'});
-				} else if (i >= 18){
+				} else if(i >= 18) {
 					$('#boxContainer').css({'top': '300px'});
 				} else {
 					$('#boxContainer').css({'top': '20px'});
@@ -191,12 +182,12 @@
 				$('#hiddenLayer').show();
 			});
 			//close lightbox
-			$('#closeBtn').click(function(event){
+			$('#closeBtn').click(function(event) {
 				$('#portraitList').css({'left':'0'});
 				$('#boxContainer').hide();
 				$('#hiddenLayer').hide();
 			});
-			$('#hiddenLayer').click(function(event){
+			$('#hiddenLayer').click(function(event) {
 				$('#portraitList').css({'left':'0'});
 				$('#boxContainer').hide();
 				$('#hiddenLayer').hide();
@@ -210,11 +201,11 @@
 
 		slideWidth = $(".slideDiv").length * cardWidth;
 
-		$('#boxContainer').mouseover(function(){
+		$('#boxContainer').mouseover(function() {
 			$('#leftHov').show();
 			$('#rightHov').show();
 		});
-		$('#boxContainer').mouseout(function(){
+		$('#boxContainer').mouseout(function() {
 			$('#rightHov').hide();
 			$('#leftHov').hide();
 		});
@@ -223,33 +214,39 @@
 		var portraits = $('#portraitList');
 
 		$("#leftHov").bind("click", function() {
-			if(portraits.position().left < 0){
-				portraits.animate({"left":"+="+cardWidth}, {speed: "fast"});
+			if(portraits.position().left < 0) {
+				portraits.animate(
+					{"left":"+="+cardWidth},
+					{speed: "fast"}
+				);
 			}
 		});
 		$("#rightHov").bind("click", function() {
-			if(portraits.position().left > -1*(slideWidth-cardWidth)){
-				portraits.animate({"left":"-="+cardWidth}, {speed: "fast"});
+			if(portraits.position().left > -1*(slideWidth-cardWidth)) {
+				portraits.animate(
+					{"left":"-="+cardWidth},
+					{speed: "fast"}
+				);
 			}
 		});
 	};//parsePeeps
 	</script>
-	</head> 
-	<body style="margin:0px; font-family:'Georgia','Serif';">
-		<div id="tableholder" style="width:600px; z-index:0; height:600px;border:none;">
-			<table id="myTable"></table>
-		</div>
-		<div id="hiddenLayer"></div>
-		<!--overlay div-->
-		<div id="container1">
+</head>
+<body style="margin:0px; font-family:'Georgia','Serif';">
+	<div id="tableholder" style="width:600px; z-index:0; height:600px;border:none;">
+		<table id="myTable"></table>
+	</div>
+	<div id="hiddenLayer"></div>
+	<!--overlay div-->
+	<div id="container1">
 		<div id="boxContainer">
 			<div id="leftHov"><a href="#"><img src="img/left.png" alt="slide left"/></a></div>
 			<div id="rightHov"><a href="#"><img src="img/right.png" alt="slide right"/></a></div>
-			<ul id="portraitList"></ul>	
+			<ul id="portraitList"></ul>
 			<div id="closeBtn">
 				<a href="#">X</a>
 			</div>
 		</div>
-		</div>
-	</body>
+	</div>
+</body>
 </html>

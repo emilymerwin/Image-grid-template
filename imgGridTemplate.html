@@ -154,10 +154,10 @@
 			}
 			slideID = gridID + "div";
 			imgSrc = gdata.imageurl;
-			lilImg = '<a href="#"><img class="lilImg" src="' + imgSrc + '"/></a>';
+			lilImg = '<img class="lilImg" id='+gridID+' src="' + imgSrc + '"/>';
 			bigImg = '<img class="bigImg" src="' + imgSrc + '"/>';
-			var myTD = "<td><div id='img"+i+"'>"+lilImg+"</div></td>",
 			spot = i*cardWidth;
+			var myTD = "<td><div>"+lilImg+"</div></td>",
 			if(i%5 === 0) { //split grid into rows of 5
 				myTable.append('<tr id="tr'+myTR+'"></tr>');
 				activeTR = $("#tr"+myTR);
@@ -238,12 +238,10 @@
 	<!--overlay div-->
 	<div id="container1">
 		<div id="boxContainer">
-			<div id="leftHov"><a href="#"><img src="img/left.png" alt="slide left"/></a></div>
-			<div id="rightHov"><a href="#"><img src="img/right.png" alt="slide right"/></a></div>
+			<div id="leftHov"><img src="img/left.png" alt="slide left"/></div>
+			<div id="rightHov"><img src="img/right.png" alt="slide right"/></div>
 			<ul id="portraitList"></ul>
-			<div id="closeBtn">
-				<a href="#">X</a>
-			</div>
+			<div id="closeBtn">X</div>
 		</div>
 	</div>
 </body>

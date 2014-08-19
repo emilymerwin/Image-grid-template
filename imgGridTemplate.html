@@ -156,8 +156,8 @@
 			imgSrc = gdata.imageurl;
 			lilImg = '<img class="lilImg" id='+gridID+' src="' + imgSrc + '"/>';
 			bigImg = '<img class="bigImg" src="' + imgSrc + '"/>';
-			spot = i*cardWidth;
 			var myTD = "<td><div>"+lilImg+"</div></td>",
+			slot = i*cardWidth;
 			if(i%5 === 0) { //split grid into rows of 5
 				myTable.append('<tr id="tr'+myTR+'"></tr>');
 				activeTR = $("#tr"+myTR);
@@ -176,7 +176,7 @@
 					$('#boxContainer').css({'top': '20px'});
 				}
 				$('#portraitList').css({'left':'0'});
-				$('#portraitList').animate({'left':'-='+spot},'100');
+				$('#portraitList').animate({'left':'-='+slot},'100');
 				$('#hiddenLayer').show();
 			});
 			//close lightbox
@@ -194,7 +194,7 @@
 			//fill lightbox with info
 			var divStuff = '<div id="name'+gridID+'"><span class="names"><strong>'+name+'</strong></span><span class="dates">'+smalltext+'</span></div><div style="width:'+cardWidth+'px;height:280px;display:block;"><div class="images" id="img'+gridID+'">'+bigImg+'</div><div class="information" id="info'+gridID+'"><p>'+narrative+'</p></div></div>';
 			document.getElementById("portraitList").innerHTML += '<li id="'+slideID+'" class="slideDiv">'+divStuff+'</li>';
-			$('#'+slideID).css({'left': spot});
+			$('#'+slideID).css({'left': slot});
 		});//$.each()
 
 		slideWidth = $(".slideDiv").length * cardWidth;
@@ -238,8 +238,8 @@
 	<!--overlay div-->
 	<div id="container1">
 		<div id="boxContainer">
-			<div id="leftHov"><img src="img/left.png" alt="slide left"/></div>
-			<div id="rightHov"><img src="img/right.png" alt="slide right"/></div>
+			<div id="leftHov"><img src="assets/left.png" alt="slide left"/></div>
+			<div id="rightHov"><img src="assets/right.png" alt="slide right"/></div>
 			<ul id="portraitList"></ul>
 			<div id="closeBtn">X</div>
 		</div>

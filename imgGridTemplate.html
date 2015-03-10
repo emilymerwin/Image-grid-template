@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Image grid with info cards</title>
 	<link rel="stylesheet" href="http://host.coxmediagroup.com/ajc/digitalprojects/global/css/iFrame_Medley.css" type="text/css" />
-	<style type="text/css">
 		td {
 			width: 120px;
 			height: 120px;
@@ -132,6 +131,7 @@
 	<script src="http://alt.coxnewsweb.com/ajc/_newsapps/libraries/utility/tabletop/tabletop.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	var public_spreadsheet_url, url = window.location.toString(), query_string = url.split("?"), cardWidth = 500, winHeight = $(window).height();
+	var $portraits = $('#portraitList'), $boxContainer = $('#boxContainer'), $leftHov = $("#leftHov"), $rightHov = $("#rightHov"), $hiddenLayer = $("#hiddenLayer");
 	window.onload = function() {
 		public_spreadsheet_url = query_string[2];
 		init();
@@ -167,65 +167,65 @@
 
 			//make image grid click to open lightbox
 			$('#'+gridID).click(function(event) {
-				$('#boxContainer').show();
-				var $boxContainer = $('#boxContainer'), boxHeight = $boxContainer.height(), docHeight = $(document).height(), pageY = event.pageY;
+				$boxContainer.show();
+
+				var boxHeight = $boxContainer.height(), docHeight = $(document).height(), pageY = event.pageY;
 				//relocate popup box based on how far down the page you are
 				if(pageY <= (boxHeight + 10) && pageY <= (winHeight - boxHeight)) {
-					$('#boxContainer').css({'top': pageY + 5});
+					$boxContainer.css({'top': pageY + 5});
 				} else if(pageY >= (winHeight - boxHeight) && pageY <= winHeight) {
-					$('#boxContainer').css({'top': (winHeight - boxHeight - 50)});
+					$boxContainer.css({'top': (winHeight - boxHeight - 50)});
 				} else if(pageY >= winHeight && event.clientY > winHeight - boxHeight) {
-					$('#boxContainer').css({'top': (pageY - boxHeight - 50)});
+					$boxContainer.css({'top': (pageY - boxHeight - 50)});
 				} else {
-					$('#boxContainer').css({'top': pageY});
+					$boxContainer.css({'top': pageY});
 				}
-				$('#portraitList').css({'left':'0'});
-				$('#portraitList').animate({'left':'-='+slot},'100');
-				$('#hiddenLayer').show();
+				$portraits.css({'left':'0'});
+				$portraits.animate({'left':'-='+slot},'100');
+				$hiddenLayer.show();
 			});
 			//close lightbox
 			$('#closeBtn').click(function(event) {
-				$('#portraitList').css({'left':'0'});
-				$('#boxContainer').hide();
-				$('#hiddenLayer').hide();
+				$portraits.css({'left':'0'});
+				$boxContainer.hide();
+				$hiddenLayer.hide();
 			});
-			$('#hiddenLayer').click(function(event) {
-				$('#portraitList').css({'left':'0'});
-				$('#boxContainer').hide();
-				$('#hiddenLayer').hide();
+			$hiddenLayer.click(function(event) {
+				$portraits.css({'left':'0'});
+				$boxContainer.hide();
+				$hiddenLayer.hide();
 			});
 
 			//fill lightbox with info
 			var divStuff = '<div id="name'+gridID+'"><span class="names"><strong>'+name+'</strong></span><span class="dates">'+smalltext+'</span></div><div style="width:'+cardWidth+'px;height:280px;display:block;"><div class="images" id="img'+gridID+'">'+bigImg+'</div><div class="information" id="info'+gridID+'"><p>'+narrative+'</p></div></div>';
-			document.getElementById("portraitList").innerHTML += '<li id="'+slideID+'" class="slideDiv">'+divStuff+'</li>';
+			$portraits.append('<li id="'+slideID+'" class="slideDiv">'+divStuff+'</li>');
 			$('#'+slideID).css({'left': slot});
 		});//$.each()
 
 		slideWidth = $(".slideDiv").length * cardWidth;
 
-		$('#boxContainer').mouseover(function() {
-			$('#leftHov').show();
-			$('#rightHov').show();
+		$boxContainer.mouseover(function() {
+			$leftHov.show();
+			$rightHov.show();
 		});
-		$('#boxContainer').mouseout(function() {
-			$('#rightHov').hide();
-			$('#leftHov').hide();
+		$boxContainer.mouseout(function() {
+			$rightHov.hide();
+			$leftHov.hide();
 		});
 
 		//positioning within lightbox
-		var portraits = $('#portraitList');
 
-		$("#leftHov").bind("click", function() {
-			if(portraits.position().left < 0) {
-				portraits.animate(
+		$leftHov.bind("click", function() {
+			if($portraits.position().left < 0) {
+				$portraits.animate(
 					{"left":"+="+cardWidth},
 					{speed: "fast"}
 				);
 			}
 		});
-		$("#rightHov").bind("click", function() {
-			if(portraits.position().left > -1*(slideWidth-cardWidth)) {
-				portraits.animate(
+		$rightHov.bind("click", function() {
+			if($portraits.position().left > -1*(slideWidth-cardWidth)) {
+				$portraits.animate(
 					{"left":"-="+cardWidth},
 					{speed: "fast"}
 				);

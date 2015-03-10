@@ -5,17 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Image grid with info cards</title>
 	<link rel="stylesheet" href="http://host.coxmediagroup.com/ajc/digitalprojects/global/css/iFrame_Medley.css" type="text/css" />
-		td {
-			width: 120px;
-			height: 120px;
-			padding: 0;
-			margin: 0;
-		}
-		tr {
-			margin-top: 0;
-			margin-bottom: 0;
-			padding: 0;
-		}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		.bigImg {
 			 width: 260px;
 			 height: 260px;
@@ -142,7 +132,6 @@
 	}
 
 	function parsePeeps(gdata) {
-		var myTR = 0, myTable = $("#myTable"), activeTR;
 		$.each(gdata, function (i, gdata) {
 			gridID = "img"+i;
 			name = gdata.bigtext;
@@ -156,14 +145,9 @@
 			imgSrc = gdata.imageurl;
 			lilImg = '<img class="lilImg" id='+gridID+' src="' + imgSrc + '"/>';
 			bigImg = '<img class="bigImg" src="' + imgSrc + '"/>';
-			var myTD = "<td><div>"+lilImg+"</div></td>",
-			slot = i*cardWidth;
-			if(i%5 === 0) { //split grid into rows of 5
-				myTable.append('<tr id="tr'+myTR+'"></tr>');
-				activeTR = $("#tr"+myTR);
-				myTR++;
-			}
-			activeTR.append(myTD);
+			var slot= i*cardWidth; //place slide within popup slider
+
+			$("#grid").append('<div class="col-sm-4">'+lilImg+'</div>');
 
 			//make image grid click to open lightbox
 			$('#'+gridID).click(function(event) {
@@ -198,7 +182,7 @@
 
 			//fill lightbox with info
 			var divStuff = '<div id="name'+gridID+'"><span class="names"><strong>'+name+'</strong></span><span class="dates">'+smalltext+'</span></div><div style="width:'+cardWidth+'px;height:280px;display:block;"><div class="images" id="img'+gridID+'">'+bigImg+'</div><div class="information" id="info'+gridID+'"><p>'+narrative+'</p></div></div>';
-			$portraits.append('<li id="'+slideID+'" class="slideDiv">'+divStuff+'</li>');
+			$portraits.append('<div id="'+slideID+'" class="slideDiv">'+divStuff+'</div>');
 			$('#'+slideID).css({'left': slot});
 		});//$.each()
 
@@ -235,17 +219,17 @@
 	</script>
 </head>
 <body style="margin:0px; font-family:'Georgia','Serif';">
-	<div id="tableholder" style="width:600px; z-index:0; height:600px;border:none;">
-		<table id="myTable"></table>
-	</div>
-	<div id="hiddenLayer"></div>
-	<!--overlay div-->
-	<div id="container1">
-		<div id="boxContainer">
-			<div id="leftHov"><img src="assets/left.png" alt="slide left"/></div>
-			<div id="rightHov"><img src="assets/right.png" alt="slide right"/></div>
-			<ul id="portraitList"></ul>
-			<div id="closeBtn">X</div>
+	<div class="container">
+		<div class="row" id="grid"></div>
+		<div id="hiddenLayer"></div>
+		<!--overlay div-->
+		<div id="container1">
+			<div id="boxContainer">
+				<div id="leftHov"><img src="assets/left.png" alt="slide left"/></div>
+				<div id="rightHov"><img src="assets/right.png" alt="slide right"/></div>
+				<div id="portraitList"></div>
+				<div id="closeBtn">X</div>
+			</div>
 		</div>
 	</div>
 </body>

@@ -9,6 +9,21 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
 	<script src="http://alt.coxnewsweb.com/ajc/_newsapps/libraries/utility/tabletop/tabletop.js" type="text/javascript"></script>
+</head>
+<body style="margin:0px; font-family:'Georgia','Serif';">
+	<div class="container-fluid">
+		<div class="row" id="grid"></div>
+		<div id="hiddenLayer"></div>
+		<!--overlay div-->
+		<div id="container1">
+			<div id="boxContainer">
+				<div id="leftHov"><img src="assets/left.png" alt="slide left"/></div>
+				<div id="rightHov"><img src="assets/right.png" alt="slide right"/></div>
+				<div id="portraitList"></div>
+				<div id="closeBtn">X</div>
+			</div>
+		</div>
+	</div>
 	<script type="text/javascript">
 	var public_spreadsheet_url, url = window.location.toString(), query_string = url.split("?"), cardWidth = 500, winHeight = $(window).height();
 	var $portraits = $('#portraitList'), $boxContainer = $('#boxContainer'), $leftHov = $("#leftHov"), $rightHov = $("#rightHov"), $hiddenLayer = $("#hiddenLayer");
@@ -107,20 +122,5 @@
 		});
 	};//parsePeeps
 	</script>
-</head>
-<body style="margin:0px; font-family:'Georgia','Serif';">
-	<div class="container-fluid">
-		<div class="row" id="grid"></div>
-		<div id="hiddenLayer"></div>
-		<!--overlay div-->
-		<div id="container1">
-			<div id="boxContainer">
-				<div id="leftHov"><img src="assets/left.png" alt="slide left"/></div>
-				<div id="rightHov"><img src="assets/right.png" alt="slide right"/></div>
-				<div id="portraitList"></div>
-				<div id="closeBtn">X</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

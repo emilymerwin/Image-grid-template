@@ -14,19 +14,28 @@
 	<div class="container-fluid">
 		<div class="row" id="grid"></div>
 		<div id="hiddenLayer"></div>
-		<!--overlay div-->
-		<div id="container1">
+	</div>
+	<!--overlay div-->
+	<div class="container">
+		<div class="row">
 			<div id="boxContainer">
-				<div id="leftHov"><img src="assets/left.png" alt="slide left"/></div>
-				<div id="rightHov"><img src="assets/right.png" alt="slide right"/></div>
-				<div id="portraitList"></div>
-				<div id="closeBtn">X</div>
+				<div id="sliderBody" class="center-block">
+					<div id="leftHov"><img src="assets/left.png" alt="slide left"/></div>
+					<div id="rightHov"><img src="assets/right.png" alt="slide right"/></div>
+					<div id="portraitList"></div>
+					<div id="closeBtn">X</div>
+				</div>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
-	var public_spreadsheet_url, url = window.location.toString(), query_string = url.split("?"), cardWidth = 500, winHeight = $(window).height();
+	var public_spreadsheet_url, url = window.location.toString(), query_string = url.split("?"), cardWidth = 500, winHeight = $(window).height(), winWidth = $(window).width(), isMobile = false;
 	var $portraits = $('#portraitList'), $boxContainer = $('#boxContainer'), $leftHov = $("#leftHov"), $rightHov = $("#rightHov"), $hiddenLayer = $("#hiddenLayer");
+
+	if(winWidth <500){
+		isMobile = true;
+		cardWidth = winWidth*.9;
+	}
 	window.onload = function() {
 		public_spreadsheet_url = query_string[2];
 		init();
@@ -87,7 +96,7 @@
 
 			//fill lightbox with info
 			var divStuff = '<div id="name'+gridID+'"><span class="names"><strong>'+name+'</strong></span><span class="dates">'+smalltext+'</span></div><div style="width:'+cardWidth+'px;height:280px;display:block;"><div class="images" id="img'+gridID+'">'+bigImg+'</div><div class="information" id="info'+gridID+'"><p>'+narrative+'</p></div></div>';
-			$portraits.append('<div id="'+slideID+'" class="slideDiv">'+divStuff+'</div>');
+			$portraits.append('<div id="'+slideID+'" class="slideDiv row">'+divStuff+'</div>');
 			$('#'+slideID).css({'left': slot});
 		});//$.each()
 

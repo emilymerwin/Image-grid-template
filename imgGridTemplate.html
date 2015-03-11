@@ -47,19 +47,19 @@
 
 	function parsePeeps(gdata) {
 		$.each(gdata, function (i, gdata) {
-			gridID = "img"+i;
-			name = gdata.bigtext;
-			narrative = gdata.content;
+			var gridID = "img"+i,
+			itemName = gdata.bigtext,
+			narrative = gdata.content,
+			smalltext = "",
+			slideID = gridID + "div",
+			imgSrc = gdata.imageurl,
+			lilImg = '<img class="lilImg" id='+gridID+' src="' + imgSrc + '"/>',
+			bigImg = '<img class="bigImg" src="' + imgSrc + '"/>',
+			slot= i*cardWidth; //place slide within popup slider
+
 			if(gdata.smalltext !== undefined) {
 				smalltext = gdata.smalltext;
-			} else {
-				smalltext = "";
 			}
-			slideID = gridID + "div";
-			imgSrc = gdata.imageurl;
-			lilImg = '<img class="lilImg" id='+gridID+' src="' + imgSrc + '"/>';
-			bigImg = '<img class="bigImg" src="' + imgSrc + '"/>';
-			var slot= i*cardWidth; //place slide within popup slider
 
 			$("#grid").append('<div class="col-xs-4 col-sm-3 col-md-2">'+lilImg+'</div>');
 

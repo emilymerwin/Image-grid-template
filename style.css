@@ -1,9 +1,10 @@
-.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+#grid .col-lg-1, #grid .col-lg-10, #grid .col-lg-11, #grid .col-lg-12, #grid .col-lg-2, #grid .col-lg-3, #grid .col-lg-4, #grid .col-lg-5, #grid .col-lg-6, #grid .col-lg-7, #grid .col-lg-8, #grid .col-lg-9, #grid .col-md-1, #grid .col-md-10, #grid .col-md-11, #grid .col-md-12, #grid .col-md-2, #grid .col-md-3, #grid .col-md-4, #grid .col-md-5, #grid .col-md-6, #grid .col-md-7, #grid .col-md-8, #grid .col-md-9, #grid .col-sm-1, #grid .col-sm-10, #grid .col-sm-11, #grid .col-sm-12, #grid .col-sm-2, #grid .col-sm-3, #grid .col-sm-4, #grid .col-sm-5, #grid .col-sm-6, #grid .col-sm-7, #grid .col-sm-8, #grid .col-sm-9, #grid .col-xs-1, #grid .col-xs-10, .col-xs-11, #grid .col-xs-12, #grid .col-xs-2, #grid .col-xs-3, #grid .col-xs-4, #grid .col-xs-5, #grid .col-xs-6, #grid .col-xs-7, #grid .col-xs-8, #grid .col-xs-9 {
 	padding-left: 0;
-	padding-right: 0;
+	padding-right: 1px;
 }
 
 .bigImg {
+	width: 100%;
 	 max-width: 260px;
 	 max-height: 260px;
 	 -moz-box-shadow: 0 0 5px #888;
@@ -13,16 +14,11 @@
 .lilImg {
 	width: 100%;
 }
-img {
-	border: none;
-	padding: 0;
-	margin: 0;
-	vertical-align: middle;
-}
+
 a strong {
 	color: #000098;
 }
-.dates {
+.smallText {
 	margin-left: 5px;
 }
 #boxContainer {
@@ -38,10 +34,11 @@ a strong {
 	width: 500px;
 	max-width: 90%;
 	height: 350px;
-	-moz-box-shadow: 0 0 2px #888;
-	-webkit-box-shadow: 0 0 2px#888;
-	box-shadow: 0 0 2px #888;
-	border: 2px solid #ccc;
+/*	min-height: 250px;*/
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	border: 1px solid #ccc;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	z-index: 100;
@@ -51,30 +48,18 @@ a strong {
 	position:relative;
 }
 .slideDiv {
-	display: inline;
-	border: none;
 	position: absolute;
-	padding: 0;
-	margin: 0;
+	margin: 0 15px;
+	width: 100%;
 }
 .names {
 	font-size: 24px;
-	padding-left: 30px;
-	margin-top: 15px;
 }
-.images {
-	float: left;
-	display: inline;
-	padding: 5px;
-	padding-left: 30px;
-}
-.information {
-	float: left;
-	display: inline;
-	height: 300px;
-	width: 200px;
+
+.cardContent {
 	padding-top: 10px;
 }
+
 #leftHov, #rightHov {
 	position: absolute;
 	bottom: 0px;
@@ -97,7 +82,7 @@ a strong {
 	display: none;
 }
 #portraitList {
-	height: 350px;
+	width: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -110,4 +95,9 @@ a strong {
 	right: 0px;
 	top: 0px;
 	margin: 5px;
+}
+@media only screen and (max-width: 500px) {
+	.information.col-xs-6 {
+		margin-left: -15px;
+	}
 }

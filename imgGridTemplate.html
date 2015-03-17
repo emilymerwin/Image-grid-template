@@ -53,7 +53,7 @@
 				smalltext = gdata.smalltext;
 			}
 
-			$("#grid").append('<div class="col-xs-4 col-sm-3 col-md-2">'+lilImg+'</div>');
+			$("#grid").append('<div class="col-xs-3 col-sm-2 col-md-2">'+lilImg+'</div>');
 
 			//make image grid click to open lightbox
 			$('#'+gridID).click(function(event) {
@@ -87,7 +87,7 @@
 			});
 
 			//fill lightbox with info
-			var divStuff = '<div><span class="names"><strong>'+itemName+'</strong></span><span class="smallText">'+smalltext+'</span></div><div class="cardContent row"><div class="images col-xs-5 col-md-6">'+bigImg+'</div><div class="information col-xs-6 col-md-5">'+narrative+'</div></div>';
+			var divStuff = '<div><span class="names"><strong>'+itemName+'</strong></span><span class="smallText">'+smalltext+'</span></div><div class="cardContent row"><div class="images col-xs-5 col-md-6">'+bigImg+'</div><div class="information col-xs-6 col-md-5"><p>'+narrative+'</p></div></div>';
 			$portraits.append('<div id="'+slideID+'" class="slideDiv">'+divStuff+'</div>');
 			$('#'+slideID).css({'left': slot});
 		});//$.each()

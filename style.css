@@ -1,6 +1,6 @@
-#grid .col-lg-1, #grid .col-lg-10, #grid .col-lg-11, #grid .col-lg-12, #grid .col-lg-2, #grid .col-lg-3, #grid .col-lg-4, #grid .col-lg-5, #grid .col-lg-6, #grid .col-lg-7, #grid .col-lg-8, #grid .col-lg-9, #grid .col-md-1, #grid .col-md-10, #grid .col-md-11, #grid .col-md-12, #grid .col-md-2, #grid .col-md-3, #grid .col-md-4, #grid .col-md-5, #grid .col-md-6, #grid .col-md-7, #grid .col-md-8, #grid .col-md-9, #grid .col-sm-1, #grid .col-sm-10, #grid .col-sm-11, #grid .col-sm-12, #grid .col-sm-2, #grid .col-sm-3, #grid .col-sm-4, #grid .col-sm-5, #grid .col-sm-6, #grid .col-sm-7, #grid .col-sm-8, #grid .col-sm-9, #grid .col-xs-1, #grid .col-xs-10, .col-xs-11, #grid .col-xs-12, #grid .col-xs-2, #grid .col-xs-3, #grid .col-xs-4, #grid .col-xs-5, #grid .col-xs-6, #grid .col-xs-7, #grid .col-xs-8, #grid .col-xs-9 {
+#grid .col-lg-1, #grid .col-lg-10, #grid .col-lg-11, #grid .col-lg-12, #grid .col-lg-2, #grid .col-lg-3, #grid .col-lg-4, #grid .col-lg-5, #grid .col-lg-6, #grid .col-lg-7, #grid .col-lg-8, #grid .col-lg-9, #grid .col-md-1, #grid .col-md-10, #grid .col-md-11, #grid .col-md-12, #grid .col-md-2, #grid .col-md-3, #grid .col-md-4, #grid .col-md-5, #grid .col-md-6, #grid .col-md-7, #grid .col-md-8, #grid .col-md-9, #grid .col-sm-1, #grid .col-sm-10, #grid .col-sm-11, #grid .col-sm-12, #grid .col-sm-2, #grid .col-sm-3, #grid .col-sm-4, #grid .col-sm-5, #grid .col-sm-6, #grid .col-sm-7, #grid .col-sm-8, #grid .col-sm-9, #grid .col-xs-1, #grid .col-xs-10, #grid .col-xs-11, #grid .col-xs-12, #grid .col-xs-2, #grid .col-xs-3, #grid .col-xs-4, #grid .col-xs-5, #grid .col-xs-6, #grid .col-xs-7, #grid .col-xs-8, #grid .col-xs-9 {
 	padding-left: 0;
-	padding-right: 1px;
+	padding-right: 0px;
 }
 
 .bigImg {
@@ -44,13 +44,18 @@ a strong {
 	z-index: 100;
 	background-color: #fff;
 	overflow: hidden;
-	margin: auto;
+	margin-right: auto;
+	margin-left: auto;
 	position:relative;
 }
 .slideDiv {
 	position: absolute;
 	margin: 0 15px;
 	width: 100%;
+}
+.information {
+	height: 290px;
+	overflow-y: auto;
 }
 .names {
 	font-size: 24px;
@@ -64,7 +69,7 @@ a strong {
 	position: absolute;
 	bottom: 0px;
 	z-index: 100;
-	display: none;
+	/*display: none;*/
 }
 #leftHov {
 	left: 0px;
@@ -100,4 +105,7 @@ a strong {
 	.information.col-xs-6 {
 		margin-left: -15px;
 	}
+	/*#leftHov, #rightHov {
+		display: block;
+	}*/
 }

@@ -7,8 +7,8 @@
 	<!-- <link rel="stylesheet" href="http://host.coxmediagroup.com/ajc/digitalprojects/global/css/iFrame_Medley.css" type="text/css" /> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
-	<script src="http://alt.coxnewsweb.com/ajc/_newsapps/libraries/utility/tabletop/tabletop.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="http://alt.coxnewsweb.com/ajc/_digital_producers/imageGrids/tabletop.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -29,7 +29,7 @@
 	var $portraits = $('#portraitList'), $boxContainer = $('#boxContainer'), $leftHov = $("#leftHov"), $rightHov = $("#rightHov"), $hiddenLayer = $("#hiddenLayer");
 
 	window.onload = function() {
-		public_spreadsheet_url = query_string[2];
+		public_spreadsheet_url = query_string[2] || query_string[1]; //old spreadsheets have an extra parameter
 		init();
 	};
 
@@ -42,7 +42,7 @@
 			var gridID = "img"+i,
 			itemName = gdata.bigtext,
 			narrative = gdata.content,
-			smalltext = "",
+			smalltext = gdata.smalltext | "",
 			slideID = gridID + "div",
 			imgSrc = gdata.imageurl,
 			lilImg = '<img class="lilImg" id='+gridID+' src="' + imgSrc + '"/>',

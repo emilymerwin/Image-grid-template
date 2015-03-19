@@ -16,24 +16,24 @@
 	</div>
 	<!--overlay div-->
 	<div class="container-fluid" id="boxContainer">
-				<div id="sliderBody" class="center-block">
-					<button id="leftHov" class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>
-					<button id="rightHov" class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>
-					<div id="portraitList"></div>
-					<button type="button" class="close" id="closeBtn" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				</div>
+		<div id="sliderBody" class="center-block">
+			<button id="leftHov" class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>
+			<button id="rightHov" class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>
+			<div id="portraitList"></div>
+			<button type="button" class="close" id="closeBtn" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		</div>
 	</div>
 	<script type="text/javascript">
 	var public_spreadsheet_url, url = window.location.toString(), query_string = url.split("?"), cardWidth = 500, winHeight = $(window).height();
 	var $portraits = $('#portraitList'), $boxContainer = $('#boxContainer'), $leftHov = $("#leftHov"), $rightHov = $("#rightHov"), $hiddenLayer = $("#hiddenLayer");
 
 	window.onload = function() {
-		public_spreadsheet_url = query_string[2] || query_string[1]; //old spreadsheets have an extra parameter
+		public_spreadsheet_url = query_string[2] || query_string[1]; //legacy spreadsheets have an extra parameter
 		init();
 	};
 
 	function init() {
-	    Tabletop.init({key: public_spreadsheet_url, callback: parsePeeps, simpleSheet: true});
+		Tabletop.init({key: public_spreadsheet_url, callback: parsePeeps, simpleSheet: true});
 	}
 
 	function parsePeeps(gdata) {
@@ -103,7 +103,6 @@
 		});*/
 
 		//positioning within lightbox
-
 		$leftHov.bind("click", function() {
 			if($portraits.position().left < 0) {
 				$portraits.animate(

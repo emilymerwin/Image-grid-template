@@ -3,6 +3,10 @@
 	padding-right: 0px;
 }
 
+body {
+	background-color: HSLA(0, 0%, 100%, 0);
+}
+
 .bigImg {
 	width: 100%;
 	 max-width: 260px;
@@ -13,6 +17,12 @@
 }
 .lilImg {
 	width: 100%;
+	opacity: .7;
+}
+
+.lilImg:hover {
+	opacity: 1;
+	cursor: pointer;
 }
 
 a strong {
